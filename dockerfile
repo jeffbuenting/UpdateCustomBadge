@@ -15,4 +15,6 @@ ENV Message
 Env Color
 
 ADD PSScript.ps1 /PSScript.ps1
-ENTRYPOINT ["pwsh", "/PSScript.ps1 -FileName readme.md -Label Version -Message 1.0.33 "]
+ENTRYPOINT ["pwsh", "/PSScript.ps1"]
+
+# -FileName readme.md -Label Version -Message 1.0.33 
