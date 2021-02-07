@@ -15,4 +15,4 @@ ENV FILENAME = 'FileName'
 #Env Color
 
 ADD PSScript.ps1 /PSScript.ps1
-ENTRYPOINT ["pwsh", "/PSScript.ps1","-FileName",FILENAME,"-Label","Version","-Message","1.0.33","-Verbose"]
+ENTRYPOINT ["pwsh", "/PSScript.ps1","-FileName",$FILENAME,"-Label","Version","-Message","1.0.33","-Verbose"]
