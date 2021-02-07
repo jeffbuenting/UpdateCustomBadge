@@ -27,7 +27,7 @@ jobs:
         
   UpdateVersionBadge:
     name: Update Version Badge
-    need: pester-test
+    needs: pester-test
     if: ${{ success() }}
     runs-on: ubuntu-latest
     steps:
