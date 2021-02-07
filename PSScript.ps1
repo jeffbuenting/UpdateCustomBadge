@@ -19,7 +19,7 @@ Param (
 
 # ----- Grab the file
 Try {
-    $FileTxt = Get-Content -Path $FileName -ErrorAction Stop
+    $FileTxt = Get-Content -Path ./$FileName -ErrorAction Stop
 
     Write-Verbose "$FileName = `n$FileTxt"
 }
@@ -61,7 +61,7 @@ Elseif ( $Color ) {
 Write-Verbose "New$FileName = `n$FileTxt"
 
 Try {
-    $FileTxt | Set-Content -Path $FileName -ErrorAction Stop
+    $FileTxt | Set-Content -Path ./$FileName -ErrorAction Stop
 }
 Catch {
     Write-Error "Error saving $FileName"
