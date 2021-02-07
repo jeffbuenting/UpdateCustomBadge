@@ -17,11 +17,11 @@ Param (
     [String]$Color
 )
 
-Get-childItem .
-
 # ----- Grab the file
 Try {
-    $FileTxt = Get-Content -Path ./$FileName -ErrorAction Stop
+    $File = get-childitem . -ErrorAction Stop | where { $_.Name.toupper() -EQ $FileName.ToUpper() }
+
+    $FileTxt = Get-Content -Path $File.FullName -ErrorAction Stop
 
     Write-Verbose "$FileName = `n$FileTxt"
 }
@@ -63,7 +63,7 @@ Elseif ( $Color ) {
 Write-Verbose "New$FileName = `n$FileTxt"
 
 Try {
-    $FileTxt | Set-Content -Path ./$FileName -ErrorAction Stop
+    $FileTxt | Set-Content -Path $File.FullName -ErrorAction Stop
 }
 Catch {
     Write-Error "Error saving $FileName"
