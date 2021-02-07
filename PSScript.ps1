@@ -17,6 +17,8 @@ Param (
     [String]$Color
 )
 
+Get-childItem .
+
 # ----- Grab the file
 Try {
     $FileTxt = Get-Content -Path ./$FileName -ErrorAction Stop
