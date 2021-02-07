@@ -36,6 +36,8 @@ jobs:
         
       - name: Update Module Version
         uses: ./
+        with:
+          filename: 'readme.md'
 
 
 #     - name: Commit
