@@ -25,6 +25,18 @@ jobs:
           include_paths: Tests
           github_token: ${{ secrets.GITHUB_TOKEN }}
         
+  UpdateVersionBadge:
+    name: Update Version Badge
+    need: pester-test
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        
+      - name: Update Module Version
+        uses: ./
+
 
 #     - name: Commit
 #       if: ${{ success() }}
