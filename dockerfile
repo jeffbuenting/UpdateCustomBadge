@@ -9,7 +9,7 @@ LABEL "repository"="https://github.com/jeffbuenting/UpdateCustomBadge"
 LABEL "homepage"="https://jeffbuenting.github.io"
 LABEL "maintainer"="Jeff Buenting"
 
-ENV FILENAME = 'FileName'
+#ENV FILENAME='FileName'
 #ENV Label
 #ENV Message
 #Env Color
