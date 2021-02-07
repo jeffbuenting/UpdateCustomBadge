@@ -9,10 +9,10 @@ LABEL "repository"="https://github.com/jeffbuenting/UpdateCustomBadge"
 LABEL "homepage"="https://jeffbuenting.github.io"
 LABEL "maintainer"="Jeff Buenting"
 
-#ENV FileName
+ENV FILENAME = 'FileName'
 #ENV Label
 #ENV Message
 #Env Color
 
 ADD PSScript.ps1 /PSScript.ps1
-ENTRYPOINT ["pwsh", "/PSScript.ps1","-FileName","readme.md","-Label","Version","-Message","1.0.33","-Verbose"]
+ENTRYPOINT ["pwsh", "/PSScript.ps1","-FileName",FILENAME,"-Label","Version","-Message","1.0.33","-Verbose"]
