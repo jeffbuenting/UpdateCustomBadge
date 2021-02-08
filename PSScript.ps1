@@ -5,13 +5,11 @@
 
 [cmdletBinding()]
 Param (
-    [Parameter (Mandatory = $True)]
-    [String]$FileName,
+    [String]$FileName = $env:FILENAME,
 
-    [Parameter (Mandatory = $True)]
-    [String]$Label,
+    [String]$Label = 'Version',
 
-    [String]$Message,
+    [String]$Message = 9.9.9,
 
     [ValidateSet ('brightgreen','green','yellowgreen','yellow','orange','red','blue','lightgrey','success','important','critical','informational','inactive','blueviolet','ff69b4','9cf')]
     [String]$Color
