@@ -15,6 +15,8 @@ Param (
     [String]$Color
 )
 
+if ( $env:Verbose ) { $VerbosePreference = 'Continue' }
+
 # ----- Grab the file
 Try {
     $File = get-childitem . -ErrorAction Stop | where { $_.Name.toupper() -EQ $FileName.ToUpper() }

@@ -6,4 +6,9 @@ inputs:
   filename:
     description: "name of the file that has the badge"
     required: true
+    
+  verbose:
+    description: "True to dpsplay verbose info during processing"
+    required: true
+    default: false
 
