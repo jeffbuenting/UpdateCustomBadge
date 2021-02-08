@@ -1,0 +1,9 @@
+name: "UpdateCustomBadge"
+
+description: "Updates a custom badge in a file.  Currently only works with shield.io"
+
+inputs:
+  filename:
+    description: "name of the file that has the badge"
+    required: true
+
