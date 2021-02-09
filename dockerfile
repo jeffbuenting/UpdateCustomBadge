@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/powershell:ubuntu-latest
+FROM mcr.microsoft.com/powershell:ubuntu-18.04
 
 LABEL "com.github.actions.name"="UpdateCustomBadge"
 LABEL "com.github.actions.description"="Updates a Custom Badge"
