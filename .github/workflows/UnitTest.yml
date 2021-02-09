@@ -37,12 +37,8 @@ jobs:
       - name: Update Custom Badge
         uses: ./
         with:
-          who-to-greet: 'Mona the Octocat'
-        
-        
-        
- #         filename: 'readme.md'
- #         verbose: true
+          filename: 'readme.md'
+          verbose: 'true'
 
 
 #     - name: Commit

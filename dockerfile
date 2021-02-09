@@ -9,5 +9,8 @@ LABEL "repository"="https://github.com/jeffbuenting/UpdateCustomBadge"
 LABEL "homepage"="https://jeffbuenting.github.io"
 LABEL "maintainer"="Jeff Buenting"
 
+run echo $filename
+run echo $verbose
+
 COPY PSScript.ps1 /PSScript.ps1
 ENTRYPOINT ["pwsh", "/PSScript.ps1"]
