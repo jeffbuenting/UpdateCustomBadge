@@ -8,7 +8,7 @@ inputs:
     required: true
     
   verbose:
-    description: "True to dpsplay verbose info during processing"
+    description: "True to display verbose info during processing"
     required: true
-    default: false
+    default: 'false'
 

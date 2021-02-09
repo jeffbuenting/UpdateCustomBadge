@@ -9,10 +9,5 @@ LABEL "repository"="https://github.com/jeffbuenting/UpdateCustomBadge"
 LABEL "homepage"="https://jeffbuenting.github.io"
 LABEL "maintainer"="Jeff Buenting"
 
-# ----- Getting error Unexpected input(s), valid inputs are [].  This is due to validation code within github actions.  Placing this here is a workaground.
-# https://github.community/t/unwanted-warning-for-dynamic-input-properties-to-actions/116454
-ENV FILENAME $INPUT_FILENAME
-ENV VERBOSE $INPUT_VERBOSE
-
 COPY PSScript.ps1 /PSScript.ps1
 ENTRYPOINT ["pwsh", "/PSScript.ps1"]
