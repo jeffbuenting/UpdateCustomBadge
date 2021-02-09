@@ -15,11 +15,10 @@ Param (
   #  [String]$Color
 )
 
-#if ( $env:Verbose ) { $VerbosePreference = 'Continue' }
+if ( $env:INPUT_VERBOSE ) { $VerbosePreference = 'Continue' }
 
-#$FileName = $env:FILENAME
+$FileName = $env:INPUT_FILENAME
 
-get-childitem env:
 
 # ----- Grab the file
 Try {
