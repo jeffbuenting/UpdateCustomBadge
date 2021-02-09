@@ -25,7 +25,7 @@ jobs:
           include_paths: Tests
           github_token: ${{ secrets.GITHUB_TOKEN }}
           
-  Hello-world
+  Hello-world:
     name: Hello World
     needs: pester-test
     if: ${{ success }}
