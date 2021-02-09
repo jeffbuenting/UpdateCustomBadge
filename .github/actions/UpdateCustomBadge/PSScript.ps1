@@ -5,7 +5,7 @@
 
 [cmdletBinding()]
 Param (
-    [String]$FileName = $env:FILENAME,
+    [String]$FileName = $env:INPUT_FILENAME,
 
     [String]$Label = 'Version',
 
@@ -16,6 +16,8 @@ Param (
 )
 
 if ( $env:Verbose ) { $VerbosePreference = 'Continue' }
+
+
 
 # ----- Grab the file
 Try {
