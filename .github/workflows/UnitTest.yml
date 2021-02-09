@@ -24,21 +24,32 @@ jobs:
         with:
           include_paths: Tests
           github_token: ${{ secrets.GITHUB_TOKEN }}
-        
-  UpdateVersionBadge:
-    name: Update Version Badge
+          
+  Hello-world
+    name: Hello World
     needs: pester-test
-    if: ${{ success() }}
+    if: ${{ success }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-        
-      - name: Update Custom Badge
-        uses: ./
+      - name: hello world docker
+        uses: actions/hello-world-docker-action@master
         with:
-          filename: 'readme.md'
-          verbose: true
+          who-to-greet: 'Mona the Octocat'
+        
+ # UpdateVersionBadge:
+ #   name: Update Version Badge
+ #   needs: pester-test
+ #   if: ${{ success() }}
+ #   runs-on: ubuntu-latest
+ #   steps:
+ #     - name: Check out repository code
+ #       uses: actions/checkout@v2
+ #       
+ #     - name: Update Custom Badge
+ #       uses: ./
+ #       with:
+ #         filename: 'readme.md'
+ #         verbose: true
 
 
 #     - name: Commit
