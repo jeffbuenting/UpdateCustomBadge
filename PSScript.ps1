@@ -1,6 +1,4 @@
-﻿#! /usr/bin/pwsh
-
-<#
+﻿<#
     .LINKS
         https://shields.io/
 #>
@@ -9,12 +7,12 @@
 Param (
   #  [String]$FileName = $env:INPUT_FILENAME,
   #
-  #  [String]$Label = 'Version',
-  #
-  #  [String]$Message = 9.9.9,
-  #
-  #  [ValidateSet ('brightgreen','green','yellowgreen','yellow','orange','red','blue','lightgrey','success','important','critical','informational','inactive','blueviolet','ff69b4','9cf')]
-  #  [String]$Color
+    [String]$Label = $env:INPUT_LABEL,
+  
+    [String]$Message = $env:INPUT_MESSAGE,
+  
+    [ValidateSet ('brightgreen','green','yellowgreen','yellow','orange','red','blue','lightgrey','success','important','critical','informational','inactive','blueviolet','ff69b4','9cf')]
+    [String]$Color = $env:INPUT_COLOR
 )
 
 if ( $env:INPUT_VERBOSE.tolower() -eq 'true' ) { $VerbosePreference = 'Continue' }

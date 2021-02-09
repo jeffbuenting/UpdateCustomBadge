@@ -10,7 +10,5 @@ LABEL "homepage"="https://jeffbuenting.github.io"
 LABEL "maintainer"="Jeff Buenting"
 
 COPY PSScript.ps1 /PSScript.ps1
-RUN chmod +x /PSScript.ps1
-CMD /PSScript.ps1
 
-#ENTRYPOINT ["pwsh", "/PSScript.ps1"]
+ENTRYPOINT ["pwsh", "/PSScript.ps1"]
