@@ -1,4 +1,6 @@
-﻿<#
+﻿#! /usr/bin/pwsh
+
+<#
     .LINKS
         https://shields.io/
 #>
@@ -16,6 +18,8 @@ Param (
 )
 
 if ( $env:INPUT_VERBOSE.tolower() -eq 'true' ) { $VerbosePreference = 'Continue' }
+
+
 
 $FileName = $env:INPUT_FILENAME
 
