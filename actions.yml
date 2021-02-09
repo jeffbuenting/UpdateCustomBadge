@@ -3,12 +3,19 @@ name: "UpdateCustomBadge"
 description: "Updates a custom badge in a file.  Currently only works with shield.io"
 
 inputs:
-  filename:
-    description: "name of the file that has the badge"
+  who-to-greet:  # id of input
+    description: 'Who to greet'
     required: true
-    
-  verbose:
-    description: "True to display verbose info during processing"
-    required: true
-    default: 'false'
+    default: 'World'
 
+
+
+# filename:
+#    description: "name of the file that has the badge"
+#    required: true
+#    
+#  verbose:
+#    description: "True to display verbose info during processing"
+#    required: true
+#    default: 'false'
+#

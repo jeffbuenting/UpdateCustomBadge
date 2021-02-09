@@ -37,18 +37,22 @@ jobs:
           who-to-greet: 'Mona the Octocat'
    
    
- # UpdateVersionBadge:
- #   name: Update Version Badge
- #   needs: pester-test
- #   if: ${{ success() }}
- #   runs-on: ubuntu-latest
- #   steps:
- #     - name: Check out repository code
- #       uses: actions/checkout@v2
- #       
- #     - name: Update Custom Badge
- #       uses: ./
- #       with:
+  UpdateVersionBadge:
+    name: Update Version Badge
+    needs: pester-test
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        
+      - name: Update Custom Badge
+        uses: ./
+        with:
+          who-to-greet: 'Mona the Octocat'
+        
+        
+        
  #         filename: 'readme.md'
  #         verbose: true
 
