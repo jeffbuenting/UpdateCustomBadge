@@ -5,19 +5,21 @@
 
 [cmdletBinding()]
 Param (
-    [String]$FileName = $env:INPUT_FILENAME,
-
-    [String]$Label = 'Version',
-
-    [String]$Message = 9.9.9,
-
-    [ValidateSet ('brightgreen','green','yellowgreen','yellow','orange','red','blue','lightgrey','success','important','critical','informational','inactive','blueviolet','ff69b4','9cf')]
-    [String]$Color
+  #  [String]$FileName = $env:INPUT_FILENAME,
+  #
+  #  [String]$Label = 'Version',
+  #
+  #  [String]$Message = 9.9.9,
+  #
+  #  [ValidateSet ('brightgreen','green','yellowgreen','yellow','orange','red','blue','lightgrey','success','important','critical','informational','inactive','blueviolet','ff69b4','9cf')]
+  #  [String]$Color
 )
 
-if ( $env:Verbose ) { $VerbosePreference = 'Continue' }
+#if ( $env:Verbose ) { $VerbosePreference = 'Continue' }
 
+#$FileName = $env:FILENAME
 
+get-childitem env:
 
 # ----- Grab the file
 Try {
