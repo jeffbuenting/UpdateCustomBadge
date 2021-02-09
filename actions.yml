@@ -12,6 +12,12 @@ inputs:
     required: true
     default: 'false'
     
+runs:
+  using: 'docker'
+  args:
+    - ${{ inputs.filename }}
+    - ${{ inputs.verbose }}
+    
 branding:
   color: blue
   icon: terminal

@@ -37,8 +37,8 @@ jobs:
       - name: Update Custom Badge
         uses: ./
         with:
-          entrypoint: 'readme.md'
-          arg: 'true'
+          filename: 'readme.md'
+          verbose: 'true'
 
 
 #     - name: Commit
