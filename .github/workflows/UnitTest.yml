@@ -25,8 +25,8 @@ jobs:
           include_paths: Tests
           github_token: ${{ secrets.GITHUB_TOKEN }}
    
-  UpdateVersionBadge:
-    name: Update Version Badge
+  UpdateVersionBadgeSuccess:
+    name: Update Version Badge Success
     needs: pester-test
     if: ${{ success() }}
     runs-on: ubuntu-latest
@@ -56,10 +56,40 @@ jobs:
           filename: 'readme.md'
           label: 'Version'
           message: '1.0.1'
+          color: brightgreen
           verbose: 'true'
 
 
+
 #     - name: Commit
+#       if: ${{ success() }}
+#       run: |
+#         git status
+#         git config --global user.name 'github actions'      
+#         git config --global user.email 'actions@github.com'
+#         git ls-files --others --exclude-standard
+#         git commit -am "skip ci - Unit Test Version Update"
+#         git push
+
+    UpdateVersionBadgeFailure:
+    name: Update Version Badge Pester Test Failure
+    needs: pester-test
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        
+      - name: Update Custom Badge
+        uses: ./
+        with:
+          filename: 'readme.md'
+          label: 'Version'
+          message: '1.0.1'
+          color: red
+          verbose: 'true'
+          
+ #     - name: Commit
 #       if: ${{ success() }}
 #       run: |
 #         git status
