@@ -24,18 +24,6 @@ jobs:
         with:
           include_paths: Tests
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          
-  Hello-world:
-    name: Hello World
-    needs: pester-test
-    if: ${{ success() }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: hello world docker
-        uses: actions/hello-world-docker-action@main
-        with:
-          who-to-greet: 'Mona the Octocat'
-   
    
   UpdateVersionBadge:
     name: Update Version Badge
