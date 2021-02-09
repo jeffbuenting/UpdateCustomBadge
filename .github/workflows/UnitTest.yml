@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Update Custom Badge
-        uses: ./.github/actions/UpdateCustomBadge
+        uses: ./
         with:
           filename: 'readme.md'
           verbose: true
