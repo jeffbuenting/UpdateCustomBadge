@@ -74,7 +74,7 @@ jobs:
 #         git commit -am "skip ci - Unit Test Version Update"
 #         git push
 
-    UpdateVersionBadgeFailure:
+  UpdateVersionBadgeFailure:
     name: Update Version Badge Pester Test Failure
     needs: pester-test
     if: ${{ failure() }}
