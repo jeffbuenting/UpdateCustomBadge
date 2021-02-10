@@ -24,38 +24,41 @@ jobs:
         with:
           include_paths: Tests
           github_token: ${{ secrets.GITHUB_TOKEN }}
-   
-  UpdateVersionBadgeSuccess:
-    name: Update Version Badge Success
+          
+  GetRepoVersion:
+    name: Get the current version of the Repo
     needs: pester-test
     if: ${{ success() }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
-      
-  #    - name: Get the Version to update
-  #      run: |
-  #        if ( $File = get-childitem . | where Name -EQ "$(($env:GITHUB_REPOSITORY -split '/')[-1]).psd1" ) {
-  #          $PSD = Get-Content $File.FullName -ErrorAction Stop
-  #          $NewVer = $PSD | Select-String -Pattern "ModuleVersion = '(.*)'" -ErrorAction Stop | foreach { $_.Matches.Groups[1].Value }
-  #        }
-  #        else {
-  #          # ----- getting link and removing surrounding ()
-  #          $ExistingBadge = ($FileTxt | Select-String -Pattern "(\(https:\/\/img\.shields\.io\/badge\/Version-.*-.*\))" -ErrorAction Stop | foreach { $_.Matches.Groups[1].Value }).trimstart( '(' ).Trimend( ')' )
-  #          # ----- Get the existing badge parameters
-  #          $MatchingGroups = $ExistingBadge | Select-String -Pattern "https:\/\/img\.shields\.io\/badge\/Version-(.*)-(.*)" -ErrorAction Stop | foreach { $_.Matches.Groups }
-  #          $SplitVer = $MatchingGroups[1].Value -split '\.'
-  #          $NewVer = "$($SplitVer[0]).$($SplitVer[1]).$([int]$SplitVer[2] + 1)"
-  #      }
+        uses: actions/checkout@v2        
         
+      - name: Update Version
+        id: GetVersion
+        uses: jeffbuenting/UpdateModuleVersion@v1.1.0
+        with:
+          verbose: 'true' 
+          
+      - name: Output Version
+        run: |
+          echo "::set-output name=test::${{ steps.GetVersion.outputs.version }}"
+   
+  UpdateVersionBadgeSuccess:
+    name: Update Version Badge Success
+    needs: GetRepoVersion
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2      
         
       - name: Update Custom Badge
         uses: ./
         with:
           filename: 'readme.md'
           label: 'Version'
-          message: '1.0.1'
+          message: ${{needs.GetRepoVersion.outputs.output1}}
           color: brightgreen
           verbose: 'true'
 
