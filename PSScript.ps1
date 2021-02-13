@@ -19,14 +19,21 @@ $VerbosePreference = 'Continue'
 
 $FileName = $env:INPUT_FILENAME
 
+Write-Verbose "INPUTS:"
+Write-Verbose "     Filename = $FileName"
+Write-Verbose "     Label = $Label"
+Write-Verbose "     Message = $Message"
+Write-Verbose "     Color = $Color"
 
 # ----- Grab the file
 Try {
     $File = get-childitem . -ErrorAction Stop | where { $_.Name.toupper() -EQ $FileName.ToUpper() }
 
+    Write-Verbose "Found file : $($File | out-string)"
+
     $FileTxt = Get-Content -Path $File.FullName -ErrorAction Stop
 
-    Write-Verbose "$FileName = `n$FileTxt"
+    Write-Verbose "File= `n$FileTxt"
 }
 Catch {
     Write-Error "Error getting file $FileName"
