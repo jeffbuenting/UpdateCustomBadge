@@ -15,9 +15,7 @@ Param (
     [String]$Color = $env:INPUT_COLOR
 )
 
-if ( $env:INPUT_VERBOSE.tolower() -eq 'true' ) { $VerbosePreference = 'Continue' }
-
-
+$VerbosePreference = 'Continue'
 
 $FileName = $env:INPUT_FILENAME
 

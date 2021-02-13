@@ -17,10 +17,6 @@ inputs:
   color:
     description: "color status of the badge."
     
-  verbose:
-    description: "True to display verbose info during processing"
-    required: true
-    default: 'false'
     
 branding:
   color: blue
